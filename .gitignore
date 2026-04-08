@@ -1,0 +1,22 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+
+# Virtual environments
+venv
+040.교육용_영어_모국어_사용자의_한국어_음성_데이터
+sample_audio
+sample_test
+whisper_outputs
+.env
+ai_hub_dataset_download.txt
+aihubshell
+test_discord.py
+check_models.py
+process_dataset.py
+*.txt
+test.ipynb
