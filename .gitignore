@@ -9,9 +9,10 @@ wheels/
 # Virtual environments
 venv
 040.교육용_영어_모국어_사용자의_한국어_음성_데이터
+041.교육용_유럽어_모국어_사용자의_한국어_음성_데이터
 sample_audio
 sample_test
-whisper_outputs
+whisper_outputs_original
 .env
 ai_hub_dataset_download.txt
 aihubshell
@@ -20,3 +21,6 @@ check_models.py
 process_dataset.py
 *.txt
 test.ipynb
+whisper_outputs_repaired
+whisper_outputs_problematic
+outputs
