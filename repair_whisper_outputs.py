@@ -8,8 +8,8 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 
-DATASET_DIR = Path("040.교육용_영어_모국어_사용자의_한국어_음성_데이터")
-INPUT_DIR = Path("whisper_outputs")
+DATASET_DIR = Path("043.교육용_아시아어(중·일어_제외)_사용자의_한국어_음성_데이터")
+INPUT_DIR = Path("whisper_outputs_043")
 OUTPUT_DIR = Path("whisper_outputs_repaired")
 PROBLEMATIC_DIR = Path("whisper_outputs_problematic")
 

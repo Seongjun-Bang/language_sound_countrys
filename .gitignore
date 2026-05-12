@@ -10,8 +10,12 @@ wheels/
 venv
 040.교육용_영어_모국어_사용자의_한국어_음성_데이터
 041.교육용_유럽어_모국어_사용자의_한국어_음성_데이터
-sample_audio
+043.교육용_아시아어(중·일어_제외)_사용자의_한국어_음성_데이터
+042.교육용_중·일어_모국어_사용자의_한국어_음성_데이터
 sample_test
+whisper_outputs_041
+whisper_outputs_042
+whisper_outputs_043
 whisper_outputs_original
 .env
 ai_hub_dataset_download.txt
@@ -24,3 +28,5 @@ test.ipynb
 whisper_outputs_repaired
 whisper_outputs_problematic
 outputs
+process_dataset_zip2.py
+process_dataset_zip3.py

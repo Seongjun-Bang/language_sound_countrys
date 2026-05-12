@@ -12,7 +12,7 @@ import re
 from pathlib import Path
 
 # ============================================================
-# [성준님을 위한 블랙박스] 디스코드 알림 헬퍼
+# 디스코드 알림 헬퍼
 # ============================================================
 def send_discord_webhook(message):
     WEBHOOK_URL = "https://discord.com/api/webhooks/1487817136507457556/RSDyVojNlEKte3F3mSUWTsWOLyt3FjJT3tXx16WXd6ov6j4hpll_AScE36H1uYEAsXLp"
@@ -25,7 +25,7 @@ def send_discord_webhook(message):
 warnings.filterwarnings("ignore")
 
 # ============================================================
-# [핵심 로직] 실제 추론 및 저장 프로세스
+# 실제 추론 및 저장 프로세스
 # ============================================================
 def run_real_task():
     model_size = "large"
@@ -36,7 +36,7 @@ def run_real_task():
     model = whisper.load_model(model_size, device=device)
 
     # 타겟 데이터셋 최상위 폴더 경로
-    dataset_dir = Path("040.교육용_영어_모국어_사용자의_한국어_음성_데이터")
+    dataset_dir = Path("041.교육용_유럽어_모국어_사용자의_한국어_음성_데이터")
     if not dataset_dir.exists():
         print(f"디렉토리를 찾을 수 없습니다: {dataset_dir}")
         return
@@ -45,7 +45,7 @@ def run_real_task():
     SAVE_INTERVAL = 100       # 100개마다 CSV에 백업
     
     # 결과 폴더 및 임시 추출 공간 (1TB 여유 공간 활용)
-    OUTPUT_DIR = Path("whisper_outputs")
+    OUTPUT_DIR = Path("whisper_outputs_041")
     TEMP_EXTRACT_DIR = OUTPUT_DIR / "temp_extracted"
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     TEMP_EXTRACT_DIR.mkdir(parents=True, exist_ok=True)
@@ -249,7 +249,7 @@ def run_real_task():
     send_discord_webhook(f"🏁 **[Antigravity 최종보고]**\n총 **{total_processed_count:,}개**의 대장정이 모두 성공적으로 완료되었습니다! 🎉")
 
 # ============================================================
-# [메인 실행부] 비상 알림 보호막 탑재
+# [메인 실행부] 
 # ============================================================
 def main():
     try:
