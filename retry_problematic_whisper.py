@@ -44,6 +44,11 @@ def reprocess_problematic_datasets():
     ]
 
     for ds in datasets_to_process:
+        source_dir_path = Path(ds['source_dir'])
+        if not source_dir_path.exists():
+            print(f"⏭️ 데이터셋이 존재하지 않아 {ds['name']} 재처리를 건너뜁니다.")
+            continue
+
         print(f"\n==============================================")
         print(f"🚀 [{ds['name']}] 재처리 시작 (순정 모드)")
         print(f"==============================================")
@@ -131,8 +136,9 @@ def reprocess_problematic_datasets():
                 print(f"⚠️ [재추론 실패] {filename}: {e}")
                 prediction = "[추론 실패]"
             
-            # 기존 필드 구조 그대로 덮어쓰기
+            # 기존 필드 구조 그대로 덮어쓰기 및 에러 유형 초기화
             row_data["prediction"] = prediction
+            row_data["issue_type"] = "" # 새로운 결과이므로 이전 에러 표시 제거
             
             # 국가별 CSV 저장 로직
             nat = re.sub(r'[^\w\s]', '', row_data.get("nationality", "Unknown")).replace(" ", "_")

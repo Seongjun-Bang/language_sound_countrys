@@ -28,5 +28,6 @@ test.ipynb
 whisper_outputs_repaired
 whisper_outputs_problematic
 outputs
+outputs2
 process_dataset_zip2.py
 process_dataset_zip3.py
