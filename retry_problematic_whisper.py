@@ -33,18 +33,42 @@ def reprocess_problematic_datasets():
     datasets_to_process = [
         {
             "name": "영어 모국어",
+            "prefix": "040",
             "source_dir": "040.교육용_영어_모국어_사용자의_한국어_음성_데이터",
             "output_base": "outputs/영어 모국어"
         },
         {
             "name": "유럽어 모국어",
+            "prefix": "041",
             "source_dir": "041.교육용_유럽어_모국어_사용자의_한국어_음성_데이터",
             "output_base": "outputs/유럽어 모국어"
+        },
+        {
+            "name": "중일어 모국어",
+            "prefix": "042",
+            "source_dir": "042.교육용_중·일어_모국어_사용자의_한국어_음성_데이터",
+            "output_base": "outputs/중일어 모국어"
+        },
+        {
+            "name": "아시아어(중일어 제외) 모국어",
+            "prefix": "043",
+            "source_dir": "043.교육용_아시아어(중·일어_제외)_사용자의_한국어_음성_데이터",
+            "output_base": "outputs/아시아어(중일어 제외) 모국어"
         }
     ]
 
     for ds in datasets_to_process:
-        source_dir_path = Path(ds['source_dir'])
+        # prefix를 기준으로 실제 디렉토리 자동 매칭 (폴더명 불일치 대비)
+        prefix = ds.get("prefix")
+        source_dir_path = None
+        if prefix:
+            matches = list(Path(".").glob(f"{prefix}.*"))
+            if matches and matches[0].is_dir():
+                source_dir_path = matches[0]
+
+        if not source_dir_path:
+            source_dir_path = Path(ds['source_dir'])
+
         if not source_dir_path.exists():
             print(f"⏭️ 데이터셋이 존재하지 않아 {ds['name']} 재처리를 건너뜁니다.")
             continue
@@ -77,10 +101,7 @@ def reprocess_problematic_datasets():
         if len(problematic_items) == 0:
             continue
 
-        source_dir_path = Path(ds['source_dir'])
-        if not source_dir_path.exists():
-            continue
-            
+
         print("🔍 원본 ZIP 파일 스캔 중...")
         audio_zips = list(source_dir_path.rglob("TS*.zip")) + list(source_dir_path.rglob("VS*.zip"))
         
