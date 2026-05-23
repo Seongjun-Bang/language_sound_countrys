@@ -50,10 +50,10 @@ def reprocess_problematic_datasets():
             "output_base": "outputs/중일어 모국어"
         },
         {
-            "name": "아시아어(중일어 제외) 모국어",
+            "name": "아시아어 모국어",
             "prefix": "043",
             "source_dir": "043.교육용_아시아어(중·일어_제외)_사용자의_한국어_음성_데이터",
-            "output_base": "outputs/아시아어(중일어 제외) 모국어"
+            "output_base": "outputs/아시아어 모국어"
         }
     ]
 
